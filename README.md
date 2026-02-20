@@ -9,8 +9,8 @@ This repository contains the simulation code and the corresponding paper for **c
 
 ## Repository structure
 
-- `1D/` – 1D simulations (classical and interval-extended BOX-bias)
-- `2D/` – 2D simulations (classical and interval-extended BOX-bias)
+- `1D Case/` – 1D simulations (classical and interval-extended)
+- `2D Case/` – 2D simulations (classical and interval-extended BOX/Zonotope)
 - `Paper/` – final PDF corresponding to the simulation study
 
 Each simulation folder contains an `outputs/` directory with figures and (for 2D) cached maps (`.npz`) used in the paper.
