@@ -1,56 +1,55 @@
-# Simulation Study (1D/2D) — Companion Code
+# Interval-extended congruency tests (TLS deformation monitoring)
 
-## Description
+This repository contains the simulation code and the corresponding paper for **classical** vs **interval-extended** congruency tests that explicitly account for *remaining systematic effects* as **unknown-but-bounded** biases.
 
-This repository provides the complete simulation framework used in the study
-presented in `Paper/ivk_2026_013.pdf`. 
+**Paper (IVK 2026 proceedings):**
+- *Beyond a Pure Stochastic Treatment: Integrating Remaining Systematics into Congruency Tests*  
+  Reza Naeimaei, Steffen Schön  
+  DOI: `10.3217/978-3-99161-070-0-013` (see [`Paper/ivk_2026_013.pdf`](Paper/ivk_2026_013.pdf))
 
-It includes:
+## Repository structure
 
-- Implementation of classical and extended methods in 1D and 2D
-- Numerical experiments used for validation
-- Generated figures and result files
-- Reproducible scripts corresponding directly to the paper
+- `1D/` – 1D simulations (classical and interval-extended BOX-bias)
+- `2D/` – 2D simulations (classical and interval-extended BOX-bias)
+- `Paper/` – final PDF corresponding to the simulation study
 
-The repository is structured to allow full reproducibility of the simulation
-results reported in the publication.
+Each simulation folder contains an `outputs/` directory with figures and (for 2D) cached maps (`.npz`) used in the paper.
 
----
+## Requirements
 
-## Repository Structure
+- Python **>= 3.9**
+- Packages: `numpy`, `scipy`, `matplotlib`, `tqdm`, `joblib`
 
-- `1D/` — 1D simulation scripts and outputs  
-- `2D/` — 2D simulation scripts and outputs  
-- `Paper/` — Final published paper PDF  
-- `*/outputs/` — Generated figures and saved result files  
-
----
-
-## How to Run
-
-### 1D Simulations
+Install with pip:
+```bash
+python -m venv .venv
+# Windows: .venv\\Scripts\\activate
+# macOS/Linux: source .venv/bin/activate
+pip install -r requirements.txt
 ```
+
+## Reproducing the simulations
+
+### 1D
+```bash
 python 1D/01_classic_1D.py
 python 1D/02_extended_box_1D.py
 ```
 
-### 2D Simulations
-```
+### 2D
+```bash
 python 2D/01_classic_2D.py
 python 2D/02_extended_box_2D.py
-python 2D/03_extended_zonotope_2D.py
 ```
 
-Outputs are written to the corresponding `outputs/` folders.
+The scripts write figures to the corresponding `*/outputs/...` folders.
 
----
+## Notes on reproducibility
 
-## Reproducibility
+- The scripts use fixed RNG seeds (see the `Config...` dataclasses) for reproducible Monte Carlo results.
+- The 2D scripts can be computationally heavier; they support parallel execution via `joblib`.
 
-Install dependencies:
+## License
 
-```
-pip install -r requirements.txt
-```
-
-Then execute the desired simulation script.
+- **Code:** MIT License (see `LICENSE`).
+- **Paper PDF:** includes its own license statement inside the document (CC BY 4.0 for the paper content, with exclusions for third-party material as noted in the PDF).
