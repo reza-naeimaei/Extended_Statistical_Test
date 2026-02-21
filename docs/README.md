@@ -11,7 +11,7 @@ E = \{\mathbf d : \mathbf d^\top \Sigma_d^{-1}\,\mathbf d \le k_\alpha\}.
 \]
 
 Remaining systematic effects are treated as **unknown-but-bounded** biases \(\mathbf b\in B\), where \(B\subset\mathbb R^2\) is an admissible set.
-In the paper and simulations we consider:
+In the paper and simulations, we consider:
 
 - **Box model**: axis-aligned bounds in \((b_x,b_y)\)
 - **Zonotope model**: generator-based bounds that can encode preferred directions and dependencies
@@ -47,4 +47,4 @@ Using the same critical value \(k_\alpha\) as the classical test, the interval e
 
 ### Minkowski sum/difference with box and zonotope (animation)
 
-![Minkowski sum and difference: ellipse with box/zonotope](minkowski_example_45.gif)
+![Minkowski sum and difference: ellipse with box/zonotope](minkowski_example_0.gif)
