@@ -14,7 +14,7 @@ Here, we demonstrate via simulations how neglecting remaining systematic errors 
 ## Repository structure
 
 - `1D Case/` – 1D simulations (classical and interval-extended)
-- `2D Case/` – 2D simulations (classical and interval-extended BOX/Zonotope)
+- `2D Case/` – 2D simulations (classical and interval-extended box/zonotope)
 - `Paper/` – final PDF corresponding to the simulation study
 
 Each simulation folder contains an `outputs/` directory with figures and (for 2D) cached maps (`.npz`) used in the paper.
