@@ -1,4 +1,4 @@
-# Interval-extended congruency tests (TLS deformation monitoring)
+# Interval-extended congruency tests
 
 This repository contains the simulation code and the corresponding paper for **classical** vs **interval-extended** congruency tests that explicitly account for *remaining systematic effects* as **unknown-but-bounded** biases.
 
