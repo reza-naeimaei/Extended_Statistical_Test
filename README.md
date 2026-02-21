@@ -49,7 +49,7 @@ The extended decision regions follow directly from Minkowski operations:
 - Strict-accept region: $\(A_{\mathrm{in}} = E \ominus B\)$
 - Ambiguity region: $\(A_{\mathrm{amb}} = A_{\mathrm{ext}} \setminus A_{\mathrm{in}}\)$
 
-See [`docs/minkowski/`](docs/minkowski/) for animations and a short mathematical explanation.
+See [`docs/`](docs/) for animations and a short mathematical explanation.
 
 ## Reproducing the simulations
 
