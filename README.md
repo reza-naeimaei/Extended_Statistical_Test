@@ -32,10 +32,12 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-## Notes on reproducibility
+## Geometric intuition: Minkowski sum and difference (2D)
 
-- The scripts use fixed RNG seeds (see the `Config...` dataclasses) for reproducible Monte Carlo results.
-- The 2D scripts can be computationally heavier; they support parallel execution via `joblib`.
+In the 2D interval-extended congruency test, remaining systematic effects are modeled as an admissible bounded set \(B\) (axis-aligned **box** or **zonotope**). The classical acceptance region is the ellipse
+\(E = \{\mathbf d : \mathbf d^\top \Sigma_d^{-1}\mathbf d \le k_\alpha\}\).
+The extended decision regions follow directly from Minkowski operations: the robust outer boundary is \(A_{\mathrm{ext}} = E \oplus B\), the strict-accept region is \(A_{\mathrm{in}} = E \ominus B\), and the ambiguity region is \(A_{\mathrm{amb}} = A_{\mathrm{ext}} \setminus A_{\mathrm{in}}\).
+See `docs/minkowski/` for animations and a short mathematical explanation.
 
 ## License
 
