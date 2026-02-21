@@ -14,7 +14,7 @@ This repository contains the simulation code and the corresponding paper for **c
 - `Paper/` – final PDF corresponding to the simulation study
 - `docs/minkowski/` – geometric intuition (Minkowski sum/difference) with figures/animations
 
-Each simulation folder includes an `outputs/` directory containing generated figures and cached result files (`.npz`) produced by the scripts and used for the paper.
+Each simulation folder includes an `outputs/` directory containing generated figures and cached result files (`.npz`) produced by the scripts.
 
 ## Requirements
 
