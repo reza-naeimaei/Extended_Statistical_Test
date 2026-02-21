@@ -73,4 +73,4 @@ The scripts write figures to the corresponding `*/outputs/...` folders.
 ## License
 
 - **Code:** MIT License (see `LICENSE`).
-- **Paper PDF:** includes its own license statement inside the document (CC BY 4.0 for the paper content, with exclusions for third-party material as noted in the PDF).
+- **Paper PDF:** includes its own license statement inside the document (CC BY 4.0 for the paper content).
