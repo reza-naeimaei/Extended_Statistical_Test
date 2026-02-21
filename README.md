@@ -35,7 +35,7 @@ Classical congruency tests evaluate significance under a **purely stochastic** m
 
 In this repository, we demonstrate via simulations how ignoring remaining systematic errors changes the decision behaviour of the classical test, and how incorporating them through an **interval-extended congruency test** yields robust and interpretable decisions. Remaining systematics are modelled as an admissible bounded set \(B\), represented either as an axis-aligned **box** or as a generator-based **zonotope**.
 
-![Classical vs interval-extended acceptance regions](docs/minkowski/classical_vs_extended_acceptance.png)
+![Classical vs interval-extended acceptance regions](docs/classical_vs_extended_acceptance.png)
 
 ## Geometric intuition: Minkowski sum and difference (2D)
 
