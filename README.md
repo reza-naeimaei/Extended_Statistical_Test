@@ -3,7 +3,8 @@
 This repository contains the simulation code and the corresponding paper for **classical** vs **interval-extended** congruency tests that explicitly account for *remaining systematic effects* as **unknown-but-bounded** biases. 
 
 Classical congruency tests assess significance based on a purely stochastic model, which can lead to overly optimistic results when systematic effects are significant.
-Here, we demonstrate via simulations how neglecting remaining systematic errors affects classical decisions, and how incorporating them through an interval-extended test (with box or zonotope bias models) leads to robust and interpretable decisions in both **1D** and **2D** cases.
+
+Here, we demonstrate via simulations how neglecting remaining systematic errors affects classical decisions, and how incorporating them through an interval-extended test (with **box** or **zonotope** bias models) leads to robust and interpretable decisions in both **1D** and **2D** cases.
 
 **Paper (IVK 2026 proceedings):**
 - *Beyond a Pure Stochastic Treatment: Integrating Remaining Systematics into Congruency Tests*  
