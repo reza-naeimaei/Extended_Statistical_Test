@@ -9,8 +9,8 @@ This repository contains the simulation code and the corresponding paper for **c
 
 ## Repository structure
 
-- `1D/` – 1D simulations (classical and interval-extended **box** bias model)
-- `2D/` – 2D simulations (classical and interval-extended **box**/**zonotope** bias models)
+- `1D_Case/` – 1D simulations (classical and interval-extended **box** bias model)
+- `2D_Case/` – 2D simulations (classical and interval-extended **box**/**zonotope** bias models)
 - `Paper/` – final PDF corresponding to the simulation study
 - `docs/minkowski/` – geometric intuition (Minkowski sum/difference) with figures/animations
 
