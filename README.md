@@ -32,23 +32,6 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-## Reproducing the simulations
-
-### 1D
-```bash
-python 1D Case/01_classic_1D.py
-python 1D Case/02_extended_box_1D.py
-```
-
-### 2D
-```bash
-python 2D Case/01_classic_2D.py
-python 2D Case/02_extended_box_2D.py
-python 2D Case/03_extended_zonotope_2D.py
-```
-
-The scripts write figures to the corresponding `*/outputs/...` folders.
-
 ## Notes on reproducibility
 
 - The scripts use fixed RNG seeds (see the `Config...` dataclasses) for reproducible Monte Carlo results.
