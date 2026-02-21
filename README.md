@@ -17,7 +17,7 @@ Here, we demonstrate via simulations how neglecting remaining systematic errors 
 - `2D Case/` – 2D simulations (classical and interval-extended box/zonotope)
 - `Paper/` – final PDF corresponding to the simulation study
 
-Each simulation folder contains an `outputs/` directory with figures and (for 2D) cached maps (`.npz`) used in the paper.
+Each simulation folder contains an `outputs/` directory with figures and cached result files (`.npz`) produced by the scripts.
 
 ## Requirements
 
