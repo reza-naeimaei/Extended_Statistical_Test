@@ -41,15 +41,13 @@ In this repository, we demonstrate via simulations how ignoring remaining system
 
 In the 2D interval-extended congruency test, remaining systematic effects are modelled as an admissible bounded set \(B\) (axis-aligned **box** or **zonotope**). The classical acceptance region is the ellipse
 
-$
-E = \{\mathbf d : \mathbf d^\top \Sigma_d^{-1}\,\mathbf d \le k_\alpha\}.
-$
+$E = \{\mathbf d : \mathbf d^\top \Sigma_d^{-1}\,\mathbf d \le k_\alpha\}.$
 
 The extended decision regions follow directly from Minkowski operations:
 
-- Robust outer boundary: \(A_{\mathrm{ext}} = E \oplus B\)
-- Strict-accept region: \(A_{\mathrm{in}} = E \ominus B\)
-- Ambiguity region: \(A_{\mathrm{amb}} = A_{\mathrm{ext}} \setminus A_{\mathrm{in}}\)
+- Robust outer boundary: $\(A_{\mathrm{ext}} = E \oplus B\)$
+- Strict-accept region: $\(A_{\mathrm{in}} = E \ominus B\)$
+- Ambiguity region: $\(A_{\mathrm{amb}} = A_{\mathrm{ext}} \setminus A_{\mathrm{in}}\)$
 
 See [`docs/minkowski/`](docs/minkowski/) for animations and a short mathematical explanation.
 
