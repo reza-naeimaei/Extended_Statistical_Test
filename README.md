@@ -44,11 +44,12 @@ $$
 - **Zonotope (generator-based bounded set)**
 
 $$
-Z = \left\{ G\,\zeta \;:\; \zeta \in [-1,1]^p \right\}
-  = \left\{ \sum_{i=1}^{p}\zeta_i\,g^{(i)} \;:\; \zeta_i \in [-1,1]\right\}.
+Z = \{\, G\zeta \;:\; \zeta \in [-1,1]^p \,\}
+  = \{\, \sum_{i=1}^{p}\zeta_i\,g^{(i)} \;:\; \zeta_i \in [-1,1] \,\}.
 $$
 
 The figure below illustrates these two admissible set models using the following parameters:
+![Box vs Zonotope](docs/box_and_zonotope.png)
 
 - Box bounds:
 
