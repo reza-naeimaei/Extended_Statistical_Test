@@ -1,48 +1,89 @@
 # 1D simulations (classical vs interval-extended)
 
-This folder contains 1D simulations illustrating the effect of **unknown-but-bounded** remaining systematic error on congruency testing.
+This folder contains 1D simulations illustrating how **unknown-but-bounded** remaining systematic effects (bias) change the classical 1D congruency decision and lead to a three-valued outcome (accept / reject / ambiguous).
 
-## Model (1D)
+---
+
+## Mathematical background (1D)
+
+### Classical 1D congruency test
+
+For a scalar displacement observation:
 
 $$
-d = \mu + b + e,
+d = \mu + e,
 \qquad
-e\sim\mathcal N(0,\sigma^2),
+e \sim \mathcal N(0,\sigma_d^2),
+$$
+
+we test
+
+$$
+H_0: \mu = 0
+\quad\text{vs.}\quad
+H_a: \mu \ne 0
+$$
+
+using the standardized statistic
+
+$$
+T_{\mathrm{cls}} = \frac{d}{\sigma_d},
 \qquad
-b\in B=[-\Delta,\Delta].
-$$
-
-- Classical statistic:
-
-$$
-T_{\mathrm{cls}} = \frac{d^2}{\sigma^2}.
-$$
-
-- Interval-extended statistic (for an admissible bias value \(b\)):
-
-$$
-T_{\mathrm{ext}}(b) = \frac{(d-b)^2}{\sigma^2},
-\qquad b\in B.
-$$
-
-- Interval endpoints:
-
-$$
-[T]=[T_{\min},T_{\max}],
+\text{reject if } |T_{\mathrm{cls}}| > k_\alpha,
 \qquad
-T_{\min}=\min_{b\in B}T_{\mathrm{ext}}(b),
-\quad
-T_{\max}=\max_{b\in B}T_{\mathrm{ext}}(b).
+k_\alpha = \Phi^{-1}(1-\alpha/2).
 $$
 
-Decision rule:
-- strict accept if $\(T_{\max}\le k_\alpha\)$
-- reject if $\(T_{\min}\ge k_\alpha\)$
-- ambiguous otherwise
+### Extension with bounded bias
+
+Model remaining systematics as an unknown-but-bounded bias
+
+$$
+b \in [-\Delta_d,\Delta_d],
+$$
+
+and use
+
+$$
+d = \mu + b + e.
+$$
+
+The interval-extended statistic becomes
+
+$$
+T_{\mathrm{ext}} = [T_{\min},T_{\max}]
+= \left[\frac{d-\Delta_d}{\sigma_d},\;\frac{d+\Delta_d}{\sigma_d}\right].
+$$
+
+With the classical acceptance interval
+
+$$
+A=[-k_\alpha,k_\alpha],
+$$
+
+the three-valued decision rule is:
+
+- **accept** if $$T_{\mathrm{ext}} \subset A$$
+- **reject** if $$T_{\mathrm{ext}} \cap A = \varnothing$$
+- **ambiguous** otherwise
+
+---
+
+## Figures
+
+**Equation summary (as used in the project)**
+
+![Classical 1D and interval-extension equations](docs/1D_equations.png)
+
+**Decision intuition (accept / ambiguous / reject regions)**
+
+![Interval-extended 1D decision intuition](docs/1D_decision_rule.png)
+
+---
 
 ## Scripts
 
-- `01_classic_1D.py` — classical test simulation  
-- `02_extended_box_1D.py` — interval-extended test with 1D box bias  
+- `01_classic_1D.py` — classical 1D test simulation  
+- `02_extended_box_1D.py` — interval-extended 1D test with bounded bias  
 
 Outputs are written to `outputs/`.
