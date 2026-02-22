@@ -1,8 +1,13 @@
 cff-version: 1.2.0
-title: "Simulation Study (1D/2D) Companion Code"
+title: "Interval-extended congruency tests (simulation code)"
 message: "If you use this code, please cite the associated paper."
 authors:
-  - family-names: "YourLastName"
-    given-names: "YourFirstName"
+  - family-names: "Naeimaei"
+    given-names: "Reza"
+  - family-names: "Schön"
+    given-names: "Steffen"
 version: 1.0.0
 date-released: 2026-02-20
+identifiers:
+  - type: doi
+    value: 10.3217/978-3-99161-070-0-013
