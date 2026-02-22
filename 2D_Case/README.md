@@ -25,7 +25,7 @@ $$
 **Zonotope model**
 
 $$
-B_{\mathrm{zono}} = \{\,G\zeta : \zeta \in [-1,1]^p\,\}
+B_{\mathrm{zono}} = \{G\zeta : \zeta \in [-1,1]^p\}
 = \{\sum_{i=1}^{p}\zeta_i g^{(i)} : \zeta_i \in [-1,1]\}.
 $$
 
