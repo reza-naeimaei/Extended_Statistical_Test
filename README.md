@@ -1,20 +1,25 @@
 # Interval-extended congruency tests
 
-This repository contains the simulation code and the corresponding paper for **classical** vs **interval-extended** congruency tests that explicitly account for *remaining systematic effects* as **unknown-but-bounded** biases.
+This repository provides simulation code and the companion paper for **classical** vs **interval-extended** congruency tests that explicitly account for *remaining systematic effects* as **unknown-but-bounded** biases.
 
-**Paper (IVK 2026 proceedings):**
+**Paper (IVK 2026 proceedings)**  
 - *Beyond a Pure Stochastic Treatment: Integrating Remaining Systematics into Congruency Tests*  
   Reza Naeimaei, Steffen Schön  
   DOI: `10.3217/978-3-99161-070-0-013` (see [`Paper/ivk_2026_013.pdf`](Paper/ivk_2026_013.pdf))
 
+---
+
 ## Repository structure
 
-- `1D_Case/` – 1D simulations (classical and interval-extended **box** bias model)
-- `2D_Case/` – 2D simulations (classical and interval-extended **box**/**zonotope** bias models)
-- `Paper/` – final PDF corresponding to the simulation study
-- `docs/minkowski/` – geometric intuition (Minkowski sum/difference) with figures/animations
+- `1D_Case/` — 1D simulations (classical vs interval-extended with **box** bias)
+- `2D_Case/` — 2D simulations (classical vs interval-extended with **box**/**zonotope** bias)
+- `Paper/` — final PDF corresponding to the simulation study
+- `docs/` — additional figures used in the README
+- `docs/minkowski/` — geometric intuition (Minkowski sum/difference) with figures/animations
 
 Each simulation folder includes an `outputs/` directory containing generated figures and cached result files (`.npz`) produced by the scripts.
+
+---
 
 ## Requirements
 
@@ -22,6 +27,7 @@ Each simulation folder includes an `outputs/` directory containing generated fig
 - Packages: `numpy`, `scipy`, `matplotlib`, `tqdm`, `joblib`
 
 Install with pip:
+
 ```bash
 python -m venv .venv
 # Windows: .venv\Scripts\activate
@@ -29,58 +35,117 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
+---
+
 ## Main idea
 
-Classical congruency tests evaluate significance under a **purely stochastic** model. At millimetre-level deformation monitoring, however, *remaining systematic effects* (e.g., residual registration artefacts, incidence-angle dependent effects, atmospheric variability) can be of the same order as the deformation signal. Neglecting these effects may therefore lead to **overly optimistic binary decisions**.
+Classical congruency tests evaluate significance under a **purely stochastic** model. In millimetre-level deformation monitoring, however, *remaining systematic effects* (e.g., residual registration artefacts, incidence-angle dependent effects, atmospheric variability) can be of the same order as the deformation signal. Neglecting these effects may therefore lead to **overly optimistic binary decisions**.
 
-In this repository, we demonstrate via simulations how ignoring remaining systematic errors changes the decision behaviour of the classical test, and how incorporating them through an **interval-extended congruency test** yields robust and interpretable decisions. Remaining systematics are modelled as an admissible bounded set \(B\), typically represented either as an axis-aligned **box** or as a generator-based **zonotope**:
+We extend the congruency test by separating uncertainty into:
+- a **stochastic part** (covariance-based), and
+- a **bounded systematic part** represented by an admissible set \(B\subset\mathbb{R}^2\).
 
-- **Box (interval product / axis-aligned bounds)**
+In practice, remaining systematic errors are commonly represented by either an axis-aligned **box** or a generator-based **zonotope**.
+
+### Box and zonotope models for remaining systematics
+
+**Box (interval product / axis-aligned bounds)**
 
 $$
-B = [x_{\min}, x_{\max}] \times [y_{\min}, y_{\max}] \subset \mathbb{R}^2 .
+B = [x_{\min},x_{\max}] \times [y_{\min},y_{\max}] \subset \mathbb{R}^2.
 $$
 
-- **Zonotope (generator-based bounded set)**
+**Zonotope (generator-based bounded set)**
 
 $$
-Z = \{\, G\zeta \;:\; \zeta \in [-1,1]^p \,\}
-  = \{\, \sum_{i=1}^{p}\zeta_i\,g^{(i)} \;:\; \zeta_i \in [-1,1] \,\}.
+Z = \{G\zeta : \zeta \in [-1,1]^p\}
+  = \{\sum_{i=1}^{p}\zeta_i g^{(i)} : \zeta_i \in [-1,1]\}.
 $$
 
-The figure below illustrates these two admissible set models using the following parameters:
+The figure below illustrates these two admissible set models (used here as *examples*):
+
 ![Box vs Zonotope](docs/box_and_zonotope.png)
 
-- Box bounds:
+Parameters used for the figure:
+
+**Box bounds**
 
 $$
-x_{\min}=-2,\; x_{\max}=2,\qquad y_{\min}=-2,\; y_{\max}=2 .
+B = [-2, 2] \times [-2, 2].
 $$
 
-- Zonotope generator matrix:
+**Zonotope generator matrix**
 
-```python
-G = np.array(
-    [
-        [1, 0, 1],
-        [0, 1, 1],
-    ],
-    dtype=float,
-)
+$$
+G=
+\begin{bmatrix}
+1 & 0 & 1 \\
+0 & 1 & 1
+\end{bmatrix}.
+$$
+
+### How the sets enter the interval-extended test
+
+Let \(\mathbf d\in\mathbb{R}^2\) be the observed displacement between two epochs. We use the additive model
+
+$$
+\mathbf d = \boldsymbol{\mu}_d + \mathbf b + \mathbf e,
+\qquad
+\mathbf e \sim \mathcal N(\mathbf 0,\Sigma_d),
+\qquad
+\mathbf b \in B .
+$$
+
+The classical quadratic-form statistic is
+
+$$
+T_{\mathrm{cls}} = \mathbf d^\top \Sigma_d^{-1}\mathbf d .
+$$
+
+In the interval extension, the bias is unknown but bounded, so we evaluate
+
+$$
+T_{\mathrm{ext}}(\mathbf b) = (\mathbf d-\mathbf b)^\top \Sigma_d^{-1}(\mathbf d-\mathbf b),
+\qquad \mathbf b\in B,
+$$
+
+which yields an interval-valued statistic
+
+$$
+[T] = [T_{\min},T_{\max}],
+\qquad
+T_{\min}=\min_{\mathbf b\in B}T_{\mathrm{ext}}(\mathbf b),
+\quad
+T_{\max}=\max_{\mathbf b\in B}T_{\mathrm{ext}}(\mathbf b).
+$$
+
+This induces a three-valued decision rule (strict accept / reject / ambiguous), as described in the paper.
+
+---
 
 ## Geometric intuition: Minkowski sum and difference (2D)
 
-In the 2D interval-extended congruency test, remaining systematic effects are modelled as an admissible bounded set \(B\) (axis-aligned **box** or **zonotope**). The classical acceptance region is the ellipse
+In 2D, the classical acceptance region is the ellipse
 
-$E = \{\mathbf d : \mathbf d^\top \Sigma_d^{-1}\,\mathbf d \le k_\alpha\}.$
+$$
+E = \{\,\mathbf d : \mathbf d^\top \Sigma_d^{-1}\mathbf d \le k_\alpha\,\}.
+$$
 
-The extended decision regions follow directly from Minkowski operations:
+When remaining systematics are modelled by a bounded set \(B\) (box or zonotope), the interval extension admits a transparent geometric interpretation via Minkowski operations:
 
-- Robust outer boundary: $\(A_{\mathrm{ext}} = E \oplus B\)$
-- Strict-accept region: $\(A_{\mathrm{in}} = E \ominus B\)$
-- Ambiguity region: $\(A_{\mathrm{amb}} = A_{\mathrm{ext}} \setminus A_{\mathrm{in}}\)$
+$$
+A_{\mathrm{ext}} = E \oplus B,
+\qquad
+A_{\mathrm{in}} = E \ominus B,
+\qquad
+A_{\mathrm{amb}} = A_{\mathrm{ext}} \setminus A_{\mathrm{in}} .
+$$
 
-See [`docs/`](docs/) for animations and a short mathematical explanation.
+See [`docs/minkowski/`](docs/minkowski/) for animations and a short explanation of Minkowski sum/difference and how they relate to the inner/outer/ambiguity regions.
+
+![Classical vs interval-extended acceptance regions](docs/minkowski/classical_vs_extended_acceptance.png)
+
+---
 
 ## Reproducing the simulations
 
@@ -97,7 +162,16 @@ python 2D_Case/02_extended_box_2D.py
 python 2D_Case/03_extended_zonotope_2D.py
 ```
 
-The scripts write figures to the corresponding `*/outputs/...` folders.
+The scripts write figures to the corresponding `*/outputs/` folders.
+
+---
+
+## Further reading (set representations)
+
+For additional background on set representations (boxes, zonotopes) and set-based operations, the **CORA** documentation is a good reference:  
+https://tumcps.github.io/CORA/
+
+---
 
 ## License
 
