@@ -43,7 +43,7 @@ Classical congruency tests evaluate significance under a **purely stochastic** m
 
 We extend the congruency test by separating uncertainty into:
 - a **stochastic part** (covariance-based), and
-- a **bounded systematic part** represented by an admissible set \(B\subset\mathbb{R}^2\).
+- a **bounded systematic part** represented by an admissible set $\(B\subset\mathbb{R}^2\)$.
 
 In practice, remaining systematic errors are commonly represented by either an axis-aligned **box** or a generator-based **zonotope**.
 
@@ -86,7 +86,7 @@ $$
 
 ### How the sets enter the interval-extended test
 
-Let \(\mathbf d\in\mathbb{R}^2\) be the observed displacement between two epochs. We use the additive model
+Let $\(\mathbf d\in\mathbb{R}^2\)$ be the observed displacement between two epochs. We use the additive model
 
 $$
 \mathbf d = \boldsymbol{\mu}_d + \mathbf b + \mathbf e,
@@ -141,9 +141,9 @@ A_{\mathrm{in}} = E \ominus B,
 A_{\mathrm{amb}} = A_{\mathrm{ext}} \setminus A_{\mathrm{in}} .
 $$
 
-See [`docs/minkowski/`](docs/minkowski/) for animations and a short explanation of Minkowski sum/difference and how they relate to the inner/outer/ambiguity regions.
+See [`docs/`](docs/) for animations and a short explanation of Minkowski sum/difference and how they relate to the inner/outer/ambiguity regions.
 
-![Classical vs interval-extended acceptance regions](docs/minkowski/classical_vs_extended_acceptance.png)
+![Classical vs interval-extended acceptance regions](docs/classical_vs_extended_acceptance.png)
 
 ---
 
