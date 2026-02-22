@@ -138,14 +138,9 @@ See [`docs/`](docs/) for animations and a short explanation of Minkowski sum/dif
 
 ---
 
-The scripts write figures to the corresponding `*/outputs/` folders.
-
----
-
 ## Further reading (set representations)
 
-For additional background on set representations (boxes, zonotopes) and set-based operations, the **CORA** documentation is a good reference:  
-https://tumcps.github.io/CORA/
+For additional background on set representations (boxes, zonotopes) and set-based operations, the **CORA** documentation is a good reference:  https://tumcps.github.io/CORA/
 
 ---
 
