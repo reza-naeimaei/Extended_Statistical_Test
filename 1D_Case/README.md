@@ -61,7 +61,7 @@ $$
 A=[-k_\alpha,k_\alpha],
 $$
 
-the three-valued decision rule is:
+The three-valued decision rule is:
 
 - **strict accept** if $$T_{\mathrm{ext}} \subset A$$
 - **strict reject** if $$T_{\mathrm{ext}} \cap A = \varnothing$$
@@ -69,7 +69,7 @@ the three-valued decision rule is:
 
 **Decision intuition (accept / ambiguous / reject regions)**
 
-![Interval-extended 1D decision intuition](docs/1D_decision_rule.png)
+![Interval-extended 1D decision intuition](../docs/1D_decision_rule.png)
 
 ---
 
