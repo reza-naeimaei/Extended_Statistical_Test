@@ -8,7 +8,7 @@ Let the classical acceptance region be the ellipse
 
 $E = \{\mathbf d : \mathbf d^\top \Sigma_d^{-1}\,\mathbf d \le k_\alpha\}$.
 
-Remaining systematic effects are treated as **unknown-but-bounded** biases \(\mathbf b\in B\), where \$(B\subset\mathbb R^2\)$ is an admissible set.
+Remaining systematic effects are treated as **unknown-but-bounded** biases $\(\mathbf b\in B\)$, where $\(B\subset\mathbb R^2\)$ is an admissible set.
 In the paper and simulations, we consider:
 
 - **Box model**: axis-aligned bounds in $(b_x,b_y)$
