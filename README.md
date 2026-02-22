@@ -65,6 +65,8 @@ The figure below illustrates these two admissible set models (used here as *exam
 
 ![Box vs Zonotope](docs/box_and_zonotope.png)
 
+ ---
+
 ### How the sets enter the interval-extended test
 
 Let $\(\mathbf d\in\mathbb{R}^2\)$ be the observed displacement between two epochs. We use the additive model
@@ -80,7 +82,6 @@ $$
 where the admissible bias set $\(B\subset\mathbb{R}^2\)$ is modelled either as a box or as a zonotope.
 - $$B = B_{\mathrm{box}}$$ (box model)
 - $$B = B_{\mathrm{zono}}$$ (zonotope model)
-
 
 The classical quadratic-form statistic is
 
@@ -105,8 +106,12 @@ T_{\min}=\min_{\mathbf b\in B}T_{\mathrm{ext}}(\mathbf b),
 T_{\max}=\max_{\mathbf b\in B}T_{\mathrm{ext}}(\mathbf b).
 $$
 
-This induces a three-valued decision rule (strict accept / reject / ambiguous), as described in the paper.
+This induces a three-valued decision rule (strict accept / strict reject / ambiguous), as described in the paper.
 
+For the full measurement models, hypotheses, and derivations, see:
+- [`1D_Case/README.md`](1D_Case/README.md)
+- [`2D_Case/README.md`](2D_Case/README.md)
+  
 ---
 
 ## Geometric intuition: Minkowski sum and difference (2D)
