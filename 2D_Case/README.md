@@ -1,27 +1,83 @@
-# 2D simulation (classical vs interval-extended)
+# 2D simulations (classical vs interval-extended)
 
 This folder contains 2D simulations for planar displacement vectors and demonstrates the geometric interpretation of the interval-extended test.
 
 ## Model (2D)
-\[
-\mathbf d = \boldsymbol\mu_d + \mathbf b + \mathbf e, \quad \mathbf e\sim\mathcal N(0,\Sigma_d), \quad \mathbf b\in B\subset\mathbb R^2.
-\]
 
-- Classical statistic: \(T_{\mathrm{cls}} = \mathbf d^\top\Sigma_d^{-1}\mathbf d\)
-- Classical acceptance ellipse: \(E = \{\mathbf d: \mathbf d^\top\Sigma_d^{-1}\mathbf d\le k_\alpha\}\)
-- Interval-extended statistic: \(T_{\mathrm{ext}}(\mathbf b)=(\mathbf d-\mathbf b)^\top\Sigma_d^{-1}(\mathbf d-\mathbf b)\)
-- Interval endpoints: \([T_{\min},T_{\max}]\) over \(\mathbf b\in B\)
+$$
+\mathbf d = \boldsymbol\mu_d + \mathbf b + \mathbf e,
+\qquad
+\mathbf e\sim\mathcal N(\mathbf 0,\Sigma_d),
+\qquad
+\mathbf b\in B\subset\mathbb R^2.
+$$
 
-Bias set models:
-- **Box**: axis-aligned bounds
-- **Zonotope**: generator-based bounds (preferred directions / dependencies)
+## Admissible bias set \(B\)
 
-Geometric view:
-- \(A_{\mathrm{ext}} = E\oplus B\), \(A_{\mathrm{in}} = E\ominus B\), \(A_{\mathrm{amb}} = A_{\mathrm{ext}}\setminus A_{\mathrm{in}}\)
+In this repository we use \(B\) as a generic symbol for the admissible set of remaining systematic effects, instantiated as:
+
+**Box model**
+
+$$
+B_{\mathrm{box}} = [x_{\min},x_{\max}] \times [y_{\min},y_{\max}] \subset \mathbb{R}^2.
+$$
+
+**Zonotope model**
+
+$$
+B_{\mathrm{zono}} = \{\,G\zeta : \zeta \in [-1,1]^p\,\}
+= \{\sum_{i=1}^{p}\zeta_i g^{(i)} : \zeta_i \in [-1,1]\}.
+$$
+
+In the experiments, we evaluate the test for \(B=B_{\mathrm{box}}\) and for \(B=B_{\mathrm{zono}}\).
+
+## Test statistics
+
+- Classical statistic:
+
+$$
+T_{\mathrm{cls}} = \mathbf d^\top\Sigma_d^{-1}\mathbf d.
+$$
+
+- Classical acceptance ellipse:
+
+$$
+E = \{\mathbf d : \mathbf d^\top\Sigma_d^{-1}\mathbf d \le k_\alpha\}.
+$$
+
+- Interval-extended statistic:
+
+$$
+T_{\mathrm{ext}}(\mathbf b)=(\mathbf d-\mathbf b)^\top\Sigma_d^{-1}(\mathbf d-\mathbf b),
+\qquad \mathbf b\in B.
+$$
+
+- Interval endpoints:
+
+$$
+[T]=[T_{\min},T_{\max}],
+\qquad
+T_{\min}=\min_{\mathbf b\in B}T_{\mathrm{ext}}(\mathbf b),
+\quad
+T_{\max}=\max_{\mathbf b\in B}T_{\mathrm{ext}}(\mathbf b).
+$$
+
+## Geometric view (Minkowski operations)
+
+$$
+A_{\mathrm{ext}} = E\oplus B,
+\qquad
+A_{\mathrm{in}} = E\ominus B,
+\qquad
+A_{\mathrm{amb}} = A_{\mathrm{ext}}\setminus A_{\mathrm{in}}.
+$$
+
+See `docs/minkowski/` for additional geometric intuition and animations.
 
 ## Scripts
+
 - `01_classic_2D.py`
 - `02_extended_box_2D.py`
 - `03_extended_zonotope_2D.py`
 
-Outputs are written to `outputs/`. See `docs/minkowski/` for additional geometric intuition.
+Outputs are written to `outputs/`.
