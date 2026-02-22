@@ -80,7 +80,7 @@ $$
 
 ## Geometric view (Minkowski operations)
 
-See [docs/](docs/) for additional geometric intuition and animations.
+See [docs/](../docs/) for additional geometric intuition and animations.
 
 ## Scripts
 
