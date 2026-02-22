@@ -35,32 +35,37 @@ Classical congruency tests evaluate significance under a **purely stochastic** m
 
 In this repository, we demonstrate via simulations how ignoring remaining systematic errors changes the decision behaviour of the classical test, and how incorporating them through an **interval-extended congruency test** yields robust and interpretable decisions. Remaining systematics are modelled as an admissible bounded set \(B\), typically represented either as an axis-aligned **box** or as a generator-based **zonotope**:
 
-- **Box (interval product / axis-aligned bounds)**  
-  \[
-  B = [x_{\min}, x_{\max}] \times [y_{\min}, y_{\max}] \subset \mathbb{R}^2 .
-  \]
+- **Box (interval product / axis-aligned bounds)**
 
-- **Zonotope (generator-based bounded set)**  
-  \[
-  Z = \left\{ G\,\zeta \;:\; \zeta \in [-1,1]^p \right\} = \left\{ \sum_{i=1}^{p}\zeta_i\,g^{(i)} \;:\; \zeta_i \in [-1,1]\right\}.
-  \]
+$$
+B = [x_{\min}, x_{\max}] \times [y_{\min}, y_{\max}] \subset \mathbb{R}^2 .
+$$
+
+- **Zonotope (generator-based bounded set)**
+
+$$
+Z = \left\{ G\,\zeta \;:\; \zeta \in [-1,1]^p \right\}
+  = \left\{ \sum_{i=1}^{p}\zeta_i\,g^{(i)} \;:\; \zeta_i \in [-1,1]\right\}.
+$$
 
 The figure below illustrates these two admissible set models using the following parameters:
 
 - Box bounds:
-  \[
-  x_{\min}=-2,\; x_{\max}=2,\qquad y_{\min}=-2,\; y_{\max}=2 .
-  \]
+
+$$
+x_{\min}=-2,\; x_{\max}=2,\qquad y_{\min}=-2,\; y_{\max}=2 .
+$$
 
 - Zonotope generator matrix:
-  ```python
-  G = np.array(
-      [
-          [1, 0, 1],
-          [0, 1, 1],
-      ],
-      dtype=float,
-  )
+
+```python
+G = np.array(
+    [
+        [1, 0, 1],
+        [0, 1, 1],
+    ],
+    dtype=float,
+)
 
 ## Geometric intuition: Minkowski sum and difference (2D)
 
