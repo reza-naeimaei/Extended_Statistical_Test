@@ -72,7 +72,7 @@ A_{\mathrm{in}} = E\ominus B,
 A_{\mathrm{amb}} = A_{\mathrm{ext}}\setminus A_{\mathrm{in}}.
 $$
 
-See `docs/minkowski/` for additional geometric intuition and animations.
+See [`docs/`](docs/) for additional geometric intuition and animations.
 
 ## Scripts
 
