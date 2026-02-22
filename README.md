@@ -51,37 +51,19 @@ In practice, remaining systematic errors are commonly represented by either an a
 **Box (interval product / axis-aligned bounds)**
 
 $$
-B = [x_{\min},x_{\max}] \times [y_{\min},y_{\max}] \subset \mathbb{R}^2.
+B_{\mathrm{box}} = [x_{\min},x_{\max}] \times [y_{\min},y_{\max}] \subset \mathbb{R}^2.
 $$
 
 **Zonotope (generator-based bounded set)**
 
 $$
-B = \{G\zeta : \zeta \in [-1,1]^p\}
-  = \{\sum_{i=1}^{p}\zeta_i g^{(i)} : \zeta_i \in [-1,1]\}.
+B_{\mathrm{zono}} = \{G\zeta : \zeta \in [-1,1]^p\}
+= \{\sum_{i=1}^{p}\zeta_i g^{(i)} : \zeta_i \in [-1,1]\}.
 $$
 
 The figure below illustrates these two admissible set models (used here as *examples*):
 
 ![Box vs Zonotope](docs/box_and_zonotope.png)
-
-Parameters used for the figure:
-
-**Box bounds**
-
-$$
-B = [-2, 2] \times [-2, 2].
-$$
-
-**Zonotope generator matrix**
-
-$$
-G=
-\begin{bmatrix}
-1 & 0 & 1 \\
-0 & 1 & 1
-\end{bmatrix}.
-$$
 
 ### How the sets enter the interval-extended test
 
@@ -94,6 +76,11 @@ $$
 \qquad
 \mathbf b \in B .
 $$
+
+where the admissible bias set $\(B\subset\mathbb{R}^2\)$ is modelled either as a box or as a zonotope.
+- $$B = B_{\mathrm{box}}$$ (box model)
+- $$B = B_{\mathrm{zono}}$$ (zonotope model)
+
 
 The classical quadratic-form statistic is
 
