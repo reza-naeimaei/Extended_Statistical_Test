@@ -14,8 +14,7 @@ This repository provides simulation code and the companion paper for **classical
 - `1D_Case/` — 1D simulations (classical vs interval-extended with **box** bias)
 - `2D_Case/` — 2D simulations (classical vs interval-extended with **box**/**zonotope** bias)
 - `Paper/` — final PDF corresponding to the simulation study
-- `docs/` — additional figures used in the README
-- `docs/minkowski/` — geometric intuition (Minkowski sum/difference) with figures/animations
+- `docs/` — additional figures used in the README and geometric intuition (Minkowski sum/difference) with figures/animations
 
 Each simulation folder includes an `outputs/` directory containing generated figures and cached result files (`.npz`) produced by the scripts.
 
@@ -58,7 +57,7 @@ $$
 **Zonotope (generator-based bounded set)**
 
 $$
-Z = \{G\zeta : \zeta \in [-1,1]^p\}
+B = \{G\zeta : \zeta \in [-1,1]^p\}
   = \{\sum_{i=1}^{p}\zeta_i g^{(i)} : \zeta_i \in [-1,1]\}.
 $$
 
@@ -128,7 +127,7 @@ This induces a three-valued decision rule (strict accept / reject / ambiguous), 
 In 2D, the classical acceptance region is the ellipse
 
 $$
-E = \{\,\mathbf d : \mathbf d^\top \Sigma_d^{-1}\mathbf d \le k_\alpha\,\}.
+E = \{\mathbf d : \mathbf d^\top \Sigma_d^{-1}\mathbf d \le k_\alpha\}.
 $$
 
 When remaining systematics are modelled by a bounded set \(B\) (box or zonotope), the interval extension admits a transparent geometric interpretation via Minkowski operations:
