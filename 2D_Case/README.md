@@ -12,6 +12,14 @@ $$
 \mathbf b\in B\subset\mathbb R^2.
 $$
 
+Hypotheses:
+
+$$
+H_0: \boldsymbol{\mu}_d = \mathbf 0
+\quad\text{vs.}\quad
+H_a: \boldsymbol{\mu}_d \ne \mathbf 0 .
+$$
+
 ## Admissible bias set \(B\)
 
 In this repository we use \(B\) as a generic symbol for the admissible set of remaining systematic effects, instantiated as:
@@ -19,7 +27,7 @@ In this repository we use \(B\) as a generic symbol for the admissible set of re
 **Box model**
 
 $$
-B_{\mathrm{box}} = [x_{\min},x_{\max}] \times [y_{\min},y_{\max}] \subset \mathbb{R}^2.
+B_{\mathrm{box}} = [x_{\min}, x_{\max}] \times [y_{\min}, y_{\max}] \subset \mathbb{R}^2.
 $$
 
 **Zonotope model**
@@ -29,30 +37,30 @@ B_{\mathrm{zono}} = \{G\zeta : \zeta \in [-1,1]^p\}
 = \{\sum_{i=1}^{p}\zeta_i g^{(i)} : \zeta_i \in [-1,1]\}.
 $$
 
-In the experiments, we evaluate the test for \(B=B_{\mathrm{box}}\) and for \(B=B_{\mathrm{zono}}\).
+In the experiments, we evaluate the test for $\(B=B_{\mathrm{box}}\)$ and for $\(B=B_{\mathrm{zono}}\)$.
 
 ## Test statistics
 
-- Classical statistic:
+**Classical statistic**
 
 $$
 T_{\mathrm{cls}} = \mathbf d^\top\Sigma_d^{-1}\mathbf d.
 $$
 
-- Classical acceptance ellipse:
+**Classical acceptance ellipse**
 
 $$
 E = \{\mathbf d : \mathbf d^\top\Sigma_d^{-1}\mathbf d \le k_\alpha\}.
 $$
 
-- Interval-extended statistic:
+**Interval-extended statistic**
 
 $$
 T_{\mathrm{ext}}(\mathbf b)=(\mathbf d-\mathbf b)^\top\Sigma_d^{-1}(\mathbf d-\mathbf b),
 \qquad \mathbf b\in B.
 $$
 
-- Interval endpoints:
+**Interval endpoints**
 
 $$
 [T]=[T_{\min},T_{\max}],
@@ -62,17 +70,17 @@ T_{\min}=\min_{\mathbf b\in B}T_{\mathrm{ext}}(\mathbf b),
 T_{\max}=\max_{\mathbf b\in B}T_{\mathrm{ext}}(\mathbf b).
 $$
 
+### Decision regions (geometric characterization)
+
+| Region | Set expression | Test | Meaning |
+|---|---|---|---|
+| Outer region | $A_{\mathrm{ext}} = B \oplus E$ | $T_{\min} \ge k_{\alpha}$ | strict rejection |
+| Inner region | $A_{\mathrm{in}} = E \ominus B$ | $T_{\max} \le k_{\alpha}$ | strict acceptance |
+| Ambiguous region | $A_{\mathrm{amb}} = A_{\mathrm{ext}} \setminus A_{\mathrm{in}}$ | $T_{\min} \le k_{\alpha} < T_{\max}$ | not separable |}
+
 ## Geometric view (Minkowski operations)
 
-$$
-A_{\mathrm{ext}} = E\oplus B,
-\qquad
-A_{\mathrm{in}} = E\ominus B,
-\qquad
-A_{\mathrm{amb}} = A_{\mathrm{ext}}\setminus A_{\mathrm{in}}.
-$$
-
-See [`docs/`](docs/) for additional geometric intuition and animations.
+See [docs/](docs/) for additional geometric intuition and animations.
 
 ## Scripts
 
