@@ -11,7 +11,7 @@ This folder contains 1D simulations illustrating how **unknown-but-bounded** rem
 For a scalar displacement observation:
 
 $$
-d = \mu + e,
+d = \mu_d + e,
 \qquad
 e \sim \mathcal N(0,\sigma_d^2),
 $$
@@ -19,9 +19,9 @@ $$
 we test
 
 $$
-H_0: \mu = 0
+H_0: \mu_d = 0
 \quad\text{vs.}\quad
-H_a: \mu \ne 0
+H_a: \mu_d \ne 0
 $$
 
 using the standardized statistic
@@ -45,7 +45,7 @@ $$
 and use
 
 $$
-d = \mu + b + e.
+d = \mu_d + b + e.
 $$
 
 The interval-extended statistic becomes
@@ -63,17 +63,9 @@ $$
 
 the three-valued decision rule is:
 
-- **accept** if $$T_{\mathrm{ext}} \subset A$$
-- **reject** if $$T_{\mathrm{ext}} \cap A = \varnothing$$
+- **strict accept** if $$T_{\mathrm{ext}} \subset A$$
+- **strict reject** if $$T_{\mathrm{ext}} \cap A = \varnothing$$
 - **ambiguous** otherwise
-
----
-
-## Figures
-
-**Equation summary (as used in the project)**
-
-![Classical 1D and interval-extension equations](docs/1D_equations.png)
 
 **Decision intuition (accept / ambiguous / reject regions)**
 
